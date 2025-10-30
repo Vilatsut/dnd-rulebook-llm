@@ -18,7 +18,7 @@ The first step is to extract the text, images, and tables from the "dragons_of_s
 
 1.  **Extraction with LlamaParse:** The PDF was parsed using LlamaParse (a cloud-based service), which extracted text, images, and tables into a markdown format. The extracted content is saved in `data/dnd_rules_markdown.md`.
 2.  **Chunking and Embedding:** The markdown content was then split into smaller, manageable chunks using `RecursiveCharacterTextSplitter` from LangChain. These chunks were then converted into vector embeddings using `SentenceTransformerEmbeddings`.
-3.  **Vector Store:** The embeddings were stored in ChromaDB, located in the `chroma_langchain_db` directory.
+3.  **Vector Store:** The embeddings were stored in ChromaDB, located in the `chroma_db` directory.
 
 This process ensures that all relevant information from the PDF is available in a searchable and retrievable format for the RAG application.
 
@@ -27,7 +27,7 @@ This process ensures that all relevant information from the PDF is available in 
 Instead of fine-tuning a model, a more efficient approach is to use RAG. Here's how it works:
 
 1.  **Vector Embeddings:** You'll use a pre-trained model to generate vector embeddings for each chunk of your D&D rules text, image captions, and tables. These embeddings are numerical representations of the text.
-2.  **Vector Store:** You'll store these embeddings in a vector database. This project uses ChromaDB, and the database is stored in the `chroma_langchain_db` directory. This allows for very fast searching of the most relevant text chunks based on a user's query.
+2.  **Vector Store:** You'll store these embeddings in a vector database. This project uses ChromaDB, and the database is stored in the `chroma_db` directory. This allows for very fast searching of the most relevant text chunks based on a user's query.
 3.  **API Server:** You'll create a simple API server. This project uses FastAPI, and the main application is in `app/main.py`. When a user sends a question to the API:
     *   The API will generate an embedding for the user's question.
     *   It will then search the vector database to find the most similar (i.e., relevant) text chunks from your D&D rulebook.

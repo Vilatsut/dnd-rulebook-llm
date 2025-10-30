@@ -5,13 +5,14 @@ from langchain_chroma import Chroma
 from langchain_huggingface import HuggingFaceEmbeddings
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 
+from app import config
 
 def process_and_store_data():
     """Processes the extracted markdown and stores it in ChromaDB."""
     print("Processing markdown and storing in ChromaDB...")
     
     load_dotenv()
-    db_name = os.getenv("CHROMA_DB_PERSIST_DIRECTORY", "chroma_db")
+    db_name = os.getenv("CHROMA_DB_PERSIST_DIRECTORY", config.CHROMA_DB_PERSIST_DIRECTORY)
 
     # Load the markdown file
     markdown_file_path = "data/dnd_rules_markdown.md"

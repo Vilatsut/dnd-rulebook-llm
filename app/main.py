@@ -18,6 +18,8 @@ from langchain_core.runnables import RunnableConfig
 from langchain_huggingface import HuggingFaceEmbeddings
 from pydantic import BaseModel
 
+from app import config
+
 # Load environment variables from .env file
 load_dotenv(override=True)
 
@@ -31,7 +33,7 @@ OLLAMA_URL = "http://localhost:11434/v1"
 EMBEDDING_MODEL = "sentence-transformers/all-MiniLM-L6-v2"
 
 # Vector store configuration
-PERSIST_DIRECTORY = os.getenv("CHROMA_DB_PERSIST_DIRECTORY", "chroma_db")
+PERSIST_DIRECTORY = os.getenv("CHROMA_DB_PERSIST_DIRECTORY", config.CHROMA_DB_PERSIST_DIRECTORY)
 COLLECTION_NAME = "dnd_rulebook"
 
 
@@ -46,7 +48,6 @@ embeddings = HuggingFaceEmbeddings(model_name=EMBEDDING_MODEL)
 
 # Initialize the Chroma vector store
 vector_store = Chroma(
-    collection_name=COLLECTION_NAME,
     embedding_function=embeddings,
     persist_directory=PERSIST_DIRECTORY,
 )
