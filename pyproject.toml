@@ -1,0 +1,16 @@
+[project]
+name = "dnd-rulebook-llm"
+version = "0.1.0"
+requires-python = ">=3.12"
+
+dependencies = [
+    "fastapi",
+    "uvicorn",
+    "langchain",
+    "langchain-community",
+    "langchain-huggingface",
+    "langchain-chroma",
+    "python-dotenv",
+    "llama-cloud-services",
+    "sentence-transformers"
+]
