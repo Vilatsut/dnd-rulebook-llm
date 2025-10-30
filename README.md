@@ -37,19 +37,19 @@ CHROMA_DB_PERSIST_DIRECTORY=chroma_db
 
 ## Data Preparation
 
-The knowledge base is built from the `dragons_of_stormwreck_isle.pdf` file.
+The knowledge base is built from the `dragons_of_stormwreck_isle.pdf` file. Ensure you run these commands from the project's root directory.
 
 1.  **Extract Data from PDF:**
     This step uses LlamaParse to extract text, images, and tables from the PDF into a markdown format.
     ```bash
-    python scripts/extract_data.py
+    python -m scripts.extract_data
     ```
     This will generate `data/dnd_rules_markdown.md`.
 
 2.  **Vector Embedding:**
     The extracted markdown content is then chunked, converted into vector embeddings, and stored in a ChromaDB vector store.
     ```bash
-    python scripts/process_data.py
+    python -m scripts.process_data
     ```
     This will create the `chroma_langchain_db` directory containing the vector database.
 
@@ -60,7 +60,7 @@ The knowledge base is built from the `dragons_of_stormwreck_isle.pdf` file.
 To run the FastAPI application locally:
 
 ```bash
-python app/main.py
+uvicorn app.main:app --host 0.0.0.0 --port 8000
 ```
 The API will be accessible at `http://localhost:8000`.
 
