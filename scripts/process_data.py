@@ -12,7 +12,7 @@ def process_and_store_data():
     print("Processing markdown and storing in ChromaDB...")
     
     load_dotenv()
-    db_name = os.getenv("CHROMA_DB_PERSIST_DIRECTORY", config.CHROMA_DB_PERSIST_DIRECTORY)
+    db_name = config.CHROMA_DB_PERSIST_DIRECTORY
 
     # Load the markdown file
     markdown_file_path = "data/dnd_rules_markdown.md"

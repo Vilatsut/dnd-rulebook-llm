@@ -22,7 +22,7 @@ def main():
         result_type="markdown"
     )
     
-    documents = parser.load_data("G:\\dnd-rulebook-llm\\data\\dragons_of_stormwreck_isle.pdf")
+    documents = parser.load_data(os.path.abspath("./data/dragons_of_stormwreck_isle.pdf"))
     
     # Save the extracted markdown content to a file
     if documents:

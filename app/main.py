@@ -24,32 +24,19 @@ from app import config
 load_dotenv(override=True)
 
 
-# --- Configuration ---
-# Model configuration
-MODEL = "gpt-oss:20b"
-OLLAMA_URL = "http://localhost:11434/v1"
-
-# Embedding model configuration
-EMBEDDING_MODEL = "sentence-transformers/all-MiniLM-L6-v2"
-
-# Vector store configuration
-PERSIST_DIRECTORY = os.getenv("CHROMA_DB_PERSIST_DIRECTORY", config.CHROMA_DB_PERSIST_DIRECTORY)
-COLLECTION_NAME = "dnd_rulebook"
-
-
 # --- Initialize components ---
 print("Initializing components...")
 
 # Initialize the chat model
-model = init_chat_model(f"ollama:{MODEL}", model_url=OLLAMA_URL, temperature=0.2)
+model = init_chat_model(f"{config.PROVIDER}:{config.MODEL}", model_url=config.MODEL_URL, temperature=0.2)
 
 # Initialize the embeddings model
-embeddings = HuggingFaceEmbeddings(model_name=EMBEDDING_MODEL)
+embeddings = HuggingFaceEmbeddings(model_name=config.EMBEDDING_MODEL)
 
 # Initialize the Chroma vector store
 vector_store = Chroma(
     embedding_function=embeddings,
-    persist_directory=PERSIST_DIRECTORY,
+    persist_directory=config.CHROMA_DB_PERSIST_DIRECTORY,
 )
 
 print("Components initialized.")
