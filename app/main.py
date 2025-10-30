@@ -23,13 +23,17 @@ from app import config
 # Load environment variables from .env file
 load_dotenv(override=True)
 
+GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY")
 
 # --- Initialize components ---
 print("Initializing components...")
 
 # Initialize the chat model
-model = init_chat_model(f"{config.PROVIDER}:{config.MODEL}", model_url=config.MODEL_URL, temperature=0.2)
-
+if config.MODEL_URL:
+    model = init_chat_model(f"{config.PROVIDER}:{config.MODEL}", model_url=config.MODEL_URL, temperature=0.2)
+else:
+    model = init_chat_model(f"{config.PROVIDER}:{config.MODEL}", temperature=0.2)
+    
 # Initialize the embeddings model
 embeddings = HuggingFaceEmbeddings(model_name=config.EMBEDDING_MODEL)
 

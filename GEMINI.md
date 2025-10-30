@@ -8,6 +8,8 @@ The project uses a virtual environment located in the `.venv` directory. Package
 uv sync
 ```
 
+Chroma database is to be stored in a persisten directory called "chroma_db". 
+
 ## Plan for Creating the D&D Knowledge Worker
 
 Here is a high-level plan to create a dockerized knowledge worker for D&D and deploy it with Kubernetes and llm-d.
@@ -40,7 +42,7 @@ To make your application portable and scalable, you'll containerize it using Doc
 *   The base Python image to use.
 *   The necessary dependencies to install (FastAPI, a vector database library, etc.).
 *   The application code to copy into the image.
-*   The command to run when the container starts (e.g., `uvicorn main:app --host 0.0.0.0 --port 80`).
+*   The command to run when the container starts (e.g., `uvicorn main:app --host 0.0.0.0 --port 8000`).
 
 ### Step 4: Deploy to Kubernetes with llm-d
 

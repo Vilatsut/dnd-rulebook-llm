@@ -51,7 +51,7 @@ The knowledge base is built from the `dragons_of_stormwreck_isle.pdf` file. Ensu
     ```bash
     python -m scripts.process_data
     ```
-    This will create the `chroma_langchain_db` directory containing the vector database.
+    This will create the `chroma_db` directory containing the vector database.
 
 ## Running the Application
 
