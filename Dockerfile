@@ -15,7 +15,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 # copy dependency files first for better layer caching
 COPY pyproject.toml uv.lock* ./
 
-# upgrade pip and install project (reads pyproject.toml)
+# upgrade pip and install project dependencies
 ENV PIP_EXTRA_INDEX_URL=https://download.pytorch.org/whl/cpu
 RUN pip install --upgrade pip setuptools wheel \
     && pip install .
