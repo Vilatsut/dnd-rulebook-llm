@@ -1,0 +1,12 @@
+
+services:
+  dnd-rulebook-llm:
+    build: .
+    ports:
+      - "8000:8000"
+    models:
+      - ai_runner
+
+models:
+  ai_runner:
+    model: ai/smollm2

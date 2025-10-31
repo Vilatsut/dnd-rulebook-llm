@@ -12,7 +12,6 @@ from langchain.agents.middleware import (
     SummarizationMiddleware,
     dynamic_prompt,
 )
-from langchain.chat_models import init_chat_model
 from langchain_chroma import Chroma
 from langchain_core.runnables import RunnableConfig
 from langchain_huggingface import HuggingFaceEmbeddings
@@ -28,12 +27,14 @@ GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY")
 # --- Initialize components ---
 print("Initializing components...")
 
-# Initialize the chat model
-if config.MODEL_URL:
-    model = init_chat_model(f"{config.PROVIDER}:{config.MODEL}", model_url=config.MODEL_URL, temperature=0.2)
-else:
-    model = init_chat_model(f"{config.PROVIDER}:{config.MODEL}", temperature=0.2)
-    
+print(f"Using model: {config.MODEL} at {config.MODEL_URL}")
+from langchain_openai import ChatOpenAI
+model = ChatOpenAI(
+    model=config.MODEL,
+    base_url=config.MODEL_URL,
+    api_key="not-needed"
+)
+
 # Initialize the embeddings model
 embeddings = HuggingFaceEmbeddings(model_name=config.EMBEDDING_MODEL)
 
@@ -60,7 +61,7 @@ def prompt_with_context(request: ModelRequest) -> str:
     print(f"Searching for: {last_query}")
 
     # Perform a similarity search in the vector store
-    retrieved_docs = vector_store.similarity_search(last_query, k=25)
+    retrieved_docs = vector_store.similarity_search(last_query, k=5)
     print(f"Found {len(retrieved_docs)} documents.")
 
     # Format the retrieved documents as a string
