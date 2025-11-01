@@ -11,6 +11,7 @@ metadata:
         com.docker.compose.project: dnd-rulebook-llm
         com.docker.compose.service: app
 spec:
+    type: LoadBalancer
     selector:
         com.docker.compose.project: dnd-rulebook-llm
         com.docker.compose.service: app
