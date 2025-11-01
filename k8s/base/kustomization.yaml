@@ -11,3 +11,4 @@ resources:
     - gradio-deployment.yaml
     - gradio-expose.yaml
     - gradio-service.yaml
+    - gradio-ingress.yaml
