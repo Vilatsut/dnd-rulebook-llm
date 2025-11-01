@@ -9,8 +9,7 @@ Before you begin, ensure you have the following installed:
 *   **Python 3.12+**
 *   **uv**: A fast Python package installer and resolver.
 *   **Docker**: For containerizing the application.
-*   **Kubernetes Cluster (Optional)**: If you plan to deploy with `llm-d`.
-*   **llm-d (Optional)**: Framework for serving LLMs on Kubernetes.
+*   **Kubernetes Cluster (Optional)**: If you plan to deploy.
 
 ## Setup Environment
 
@@ -64,19 +63,28 @@ uvicorn app.main:app --host 0.0.0.0 --port 8000
 ```
 The API will be accessible at `http://localhost:8000`.
 
-### Dockerization
+### Gradio UI
 
-To build the Docker image for the application:
+To run the Gradio web interface locally:
 
 ```bash
-docker build -t dnd-knowledge-worker .
+python gradio_app.py
 ```
+The Gradio UI will typically be accessible at `http://localhost:7860` (or another port if 7860 is in use). You need to change the url to point to your backend, fe. `http://localhost:8000/engines/v1`. 
 
-### Deployment to Kubernetes with llm-d (Advanced)
+### Dockerization
 
-For deployment to a Kubernetes cluster using `llm-d`, refer to the `GEMINI.md` file for a high-level plan. This typically involves:
+To run the application with docker:
 
-1.  Setting up a Kubernetes cluster with GPU nodes.
-2.  Deploying `llm-d` to your cluster.
-3.  Creating Kubernetes Deployment and Service manifests for your Dockerized RAG application.
-4.  Configuring your RAG application to communicate with the `llm-d` service for LLM inference.
+```bash
+docker compose up
+```
+Gradio UI should be available at `http://localhost:7860`
+
+### Kubernetes Deployment
+
+Kubernetes manifests for this application were generated using `docker compose bridge convert`. These manifests can be found in the `k8s/` directory and can be applied to a Kubernetes cluster for deployment with `kubectl apply -f ./k8s/overlays/desktop`.
+
+### Inference Engine with Docker Model Runner
+
+This project utilizes a Docker Model Runner as the inference engine. To change the backend model just change the "model" attribute in the docker-compose.yml. If used with kubernetes, generate new files after with the `docker compose bridge convert` commmand.
