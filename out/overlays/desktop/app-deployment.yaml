@@ -1,0 +1,15 @@
+#! app-deployment.yaml
+# Generated code, do not edit
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+    name: app
+    namespace: dnd-rulebook-llm
+spec:
+    template:
+        spec:
+            containers:
+                - name: app
+                  env:
+                    - name: AI_RUNNER_URL
+                      value: "http://host.docker.internal:12434/engines/v1/"

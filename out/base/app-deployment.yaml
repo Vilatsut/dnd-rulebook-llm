@@ -1,0 +1,37 @@
+#! app-deployment.yaml
+# Generated code, do not edit
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+    name: app
+    namespace: dnd-rulebook-llm
+    labels:
+        com.docker.compose.project: dnd-rulebook-llm
+        com.docker.compose.service: app
+spec:
+    replicas: 1
+    selector:
+        matchLabels:
+            com.docker.compose.project: dnd-rulebook-llm
+            com.docker.compose.service: app
+    strategy:
+        type: Recreate
+    template:
+        metadata:
+            labels:
+                com.docker.compose.project: dnd-rulebook-llm
+                com.docker.compose.service: app
+                com.docker.compose.network.default: "true"
+        spec:
+            containers:
+                - name: app
+                  image: vilatsut/dnd-rulebook-llm-app
+                  imagePullPolicy: Always
+                  env:
+                    - name: AI_RUNNER_URL
+                      value: "http://docker-model-runner/engines/v1/"
+                    - name: AI_RUNNER_MODEL
+                      value: "ai/smollm2"
+                  ports:
+                    - name: app-8000
+                      containerPort: 8000

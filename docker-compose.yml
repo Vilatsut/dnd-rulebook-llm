@@ -5,8 +5,11 @@ services:
     ports:
       - "8000:8000"
     models:
-      - ai_runner
+      ai_runner:
+        endpoint_var: AI_RUNNER_URL
+        model_var: AI_RUNNER_MODEL
 
 models:
   ai_runner:
     model: ai/smollm2
+    

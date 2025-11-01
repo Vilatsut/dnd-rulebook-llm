@@ -1,0 +1,13 @@
+#! model-runner-configmap.yaml
+# Generated code, do not edit
+apiVersion: v1
+kind: ConfigMap
+metadata:
+    name: docker-model-runner-init
+    namespace: dnd-rulebook-llm
+    labels:
+        com.docker.compose.project: dnd-rulebook-llm
+        com.docker.model.runner: "true"
+data:
+    models: |
+        ai/smollm2
