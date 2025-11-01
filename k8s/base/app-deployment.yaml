@@ -26,7 +26,7 @@ spec:
             containers:
                 - name: app
                   image: vilatsut/dnd-rulebook-llm-app
-                  imagePullPolicy: Always
+                  imagePullPolicy: IfNotPresent
                   env:
                     - name: AI_RUNNER_URL
                       value: "http://docker-model-runner/engines/v1/"

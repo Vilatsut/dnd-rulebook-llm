@@ -8,3 +8,6 @@ resources:
     - app-expose.yaml
     - app-service.yaml
     - default-network-policy.yaml
+    - gradio-deployment.yaml
+    - gradio-expose.yaml
+    - gradio-service.yaml

@@ -21,7 +21,6 @@ spec:
             labels:
                 com.docker.compose.project: dnd-rulebook-llm
                 com.docker.model.runner: "true"
-                com.docker.compose.network.default: "true"
         spec:
             restartPolicy: Always
             # Uncomment to schedule on specific nodes (e.g., GPU nodes)

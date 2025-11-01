@@ -22,8 +22,6 @@ from app import config
 # Load environment variables from .env file
 load_dotenv(override=True)
 
-GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY")
-
 # --- Initialize components ---
 print("Initializing components...")
 

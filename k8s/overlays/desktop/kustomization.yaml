@@ -7,3 +7,4 @@ resources:
 patches:
     - path: app-deployment.yaml
     - path: app-service.yaml
+    - path: gradio-service.yaml

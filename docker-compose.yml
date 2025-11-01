@@ -8,8 +8,15 @@ services:
       ai_runner:
         endpoint_var: AI_RUNNER_URL
         model_var: AI_RUNNER_MODEL
+  gradio:
+    build:
+      context: .
+      dockerfile: gradio.Dockerfile
+    ports:
+      - "7860:7860"
+    depends_on:
+      - app
 
 models:
   ai_runner:
     model: ai/smollm2
-    

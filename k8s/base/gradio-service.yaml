@@ -1,22 +1,19 @@
-# check if there is at least one published port
-
-#! app-service.yaml
+#! gradio-service.yaml
 # Generated code, do not edit
 apiVersion: v1
 kind: Service
 metadata:
-    name: app-published
+    name: gradio-published
     namespace: dnd-rulebook-llm
     labels:
         com.docker.compose.project: dnd-rulebook-llm
-        com.docker.compose.service: app
+        com.docker.compose.service: gradio
 spec:
-    type: LoadBalancer
     selector:
         com.docker.compose.project: dnd-rulebook-llm
-        com.docker.compose.service: app
+        com.docker.compose.service: gradio
     ports:
-        - name: app-8000
-          port: 8000
+        - name: gradio-7860
+          port: 7860
           protocol: TCP
-          targetPort: app-8000
+          targetPort: gradio-7860
