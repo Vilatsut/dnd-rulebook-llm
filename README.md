@@ -83,8 +83,10 @@ Gradio UI should be available at `http://localhost:7860`
 
 ### Kubernetes Deployment
 
-Kubernetes manifests for this application were generated using `docker compose bridge convert`. These manifests can be found in the `k8s/` directory and can be applied to a Kubernetes cluster for deployment with `kubectl apply -f ./k8s/overlays/desktop`.
+Kubernetes manifests for this application were generated using `docker compose bridge convert`. In addition, nginx ingress service was installed with `kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.8.1/deploy/static/provider/cloud/deploy.yaml`, and an gradio ingress defined as `k8s\base\gradio-ingress.yaml`. When you convert, you have to manually add the `gradio-ingress.yaml` to the `kustomization.yaml` resources section. All of these manifests can be found in the `k8s/` directory and can be applied to a Kubernetes cluster for deployment with `kubectl apply -f ./k8s/overlays/desktop`.
 
 ### Inference Engine with Docker Model Runner
 
 This project utilizes a Docker Model Runner as the inference engine. To change the backend model just change the "model" attribute in the docker-compose.yml. If used with kubernetes, generate new files after with the `docker compose bridge convert` commmand.
+
+![UI preview](resources/ui.png)
