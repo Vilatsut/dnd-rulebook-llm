@@ -19,14 +19,12 @@ def predict(message, history):
     print(f"Sending payload to FastAPI: {payload}")
 
     try:
-        print("Response: ", end="", flush=True)
         with requests.post(URL, json=payload, stream=True) as response:
             response.raise_for_status()
             full_response = ""
             for chunk in response.iter_content(chunk_size=None):
                 if chunk:
                     full_response += chunk.decode("utf-8")
-                    print(f"{chunk.decode('utf-8')}", end="", flush=True)
                     yield full_response
     except Exception as e:
         print(f"An error occurred: {e}")

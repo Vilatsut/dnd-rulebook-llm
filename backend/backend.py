@@ -63,10 +63,11 @@ def prompt_with_context(request: ModelRequest) -> str:
 
     # Format the retrieved documents as a string
     docs_content = "\n\n".join(doc.page_content for doc in retrieved_docs)
+    print(f"Found relevant docs: {docs_content}")
 
     # Create the system message with the context
     system_message = (
-        "You are a helpful assistant. You have the following context which may be useful in answering the users question, but it is not exhaustive:"
+        "You are a helpful assistant. You have the following context which may be useful in answering the users question:"
         f"\n\n{docs_content}"
     )
     print("Exiting prompt_with_context.")
@@ -81,7 +82,7 @@ agent = create_agent(
     tools=[],
     middleware=[
         prompt_with_context,
-        SummarizationMiddleware(model, max_tokens_before_summary=1000),
+#        SummarizationMiddleware(model, max_tokens_before_summary=1000),
     ],
 )
 print("Agent created.")
