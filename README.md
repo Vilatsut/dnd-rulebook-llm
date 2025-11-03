@@ -103,10 +103,10 @@ The **Lint Python Code** workflow (`lint.yml`) automatically runs on every push 
 
 ### Docker Image Building and Publishing
 
-The **Build and Push Docker Images** workflow (`docker-build-push.yml`) automatically builds and publishes Docker images to GitHub Container Registry (ghcr.io):
+The **Build and Push Docker Images** workflow (`docker-build-push.yml`) automatically builds and publishes Docker images to Docker Hub:
 - Triggers on every push to any branch
 - Triggers on version tags (e.g., `v1.0.0`)
-- Builds both `app` and `gradio` Docker images
+- Builds both `backend` and `frontend` Docker images
 - Automatically tags images with:
   - Branch name (e.g., `main`, `develop`)
   - Semantic version (e.g., `v1.0.0`, `1.0`, `1`)
@@ -115,7 +115,7 @@ The **Build and Push Docker Images** workflow (`docker-build-push.yml`) automati
 - Uses Docker BuildKit caching for faster builds
 
 Images are published to:
-- `ghcr.io/vilatsut/dnd-rulebook-llm/app`
-- `ghcr.io/vilatsut/dnd-rulebook-llm/gradio`
+- `vilatsut/dnd-rulebook-llm-backend` (FastAPI backend)
+- `vilatsut/dnd-rulebook-llm-frontend` (Gradio UI)
 
 ![UI preview](resources/ui.png)
