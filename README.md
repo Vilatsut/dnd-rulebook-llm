@@ -87,7 +87,7 @@ Kubernetes manifests for this application were generated using `docker compose b
 
 ### Inference Engine with Docker Model Runner
 
-This project utilizes a Docker Model Runner as the inference engine. To change the backend model just change the "model" attribute in the docker-compose.yml. If used with kubernetes, generate new files after with the `docker compose bridge convert` commmand.
+This project utilizes a Docker Model Runner as the inference engine. To change the backend model just change the "model" attribute in the docker-compose.yml. If used with kubernetes, generate new files after with the `docker compose bridge convert` command.
 
 ## CI/CD with GitHub Actions
 
