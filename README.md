@@ -74,22 +74,13 @@ dnd-rulebook-llm/
     cd dnd-rulebook-llm
     ```
 
-2.  **Install dependencies for backend and frontend:**
-    ```bash
-    cd backend
-    uv sync
-    cd ../frontend
-    uv sync
-    cd ..
-    ```
-
-3.  **API Keys:**
+2.  **API Keys:**
     Create a `.env` file in the root directory and add your LlamaParse API key:
     ```
     LLAMA_CLOUD_API_KEY="your_llamaparse_api_key_here"
     ```
 
-4.  **LangSmith for Logging:**
+3.  **LangSmith for Logging:**
     This project uses [LangSmith](https://smith.langchain.com/) for logging and tracing. To enable it, add the following environment variables to your `.env` file:
     ```
     LANGCHAIN_API_KEY="your_langchain_api_key_here"
@@ -115,13 +106,22 @@ dnd-rulebook-llm/
 
 ### Local Development
 
-1.  **Run the backend:**
+1.  **Install dependencies for backend and frontend:**
+    ```bash
+    cd backend
+    uv sync
+    cd ../frontend
+    uv sync
+    cd ..
+    ```
+
+2.  **Run the backend:**
     ```bash
     cd backend
     uvicorn backend:app --host 0.0.0.0 --port 8000
     ```
 
-2.  **Run the frontend:**
+3.  **Run the frontend:**
     ```bash
     cd frontend
     python frontend.py
@@ -151,7 +151,7 @@ The project uses GitHub Actions for CI/CD. The workflow in `.github/workflows/ci
 
 The model used (ai/smollm2, 360 million parameters) does not have the context windows required for these kinds of task, but was used for the reason of running the model locally. As the code uses the OpenAi api endpoint, using another model is simply a drop-in replacement.
 
-## A test run of the knowledge worker with a 360 million ai/smollm2 model. You can see the context retrieved on the right.
+## A demo run of the knowledge worker with a 360 million ai/smollm2 model. You can see the context retrieved on the right.
 https://github.com/user-attachments/assets/f34b1038-5027-4d13-a8c4-2a850b158a6f
 
 
