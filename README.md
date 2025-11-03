@@ -89,4 +89,33 @@ Kubernetes manifests for this application were generated using `docker compose b
 
 This project utilizes a Docker Model Runner as the inference engine. To change the backend model just change the "model" attribute in the docker-compose.yml. If used with kubernetes, generate new files after with the `docker compose bridge convert` commmand.
 
+## CI/CD with GitHub Actions
+
+This project includes automated GitHub Actions workflows for continuous integration and deployment:
+
+### Python Linting
+
+The **Lint Python Code** workflow (`lint.yml`) automatically runs on every push and pull request that modifies Python files:
+- Uses `flake8` to check for syntax errors and code quality issues
+- Fails the build on critical errors (syntax errors, undefined names)
+- Reports style warnings without failing the build
+- Ensures code quality standards are maintained
+
+### Docker Image Building and Publishing
+
+The **Build and Push Docker Images** workflow (`docker-build-push.yml`) automatically builds and publishes Docker images to GitHub Container Registry (ghcr.io):
+- Triggers on every push to any branch
+- Triggers on version tags (e.g., `v1.0.0`)
+- Builds both `app` and `gradio` Docker images
+- Automatically tags images with:
+  - Branch name (e.g., `main`, `develop`)
+  - Semantic version (e.g., `v1.0.0`, `1.0`, `1`)
+  - Git commit SHA with branch prefix (e.g., `main-sha123abc`)
+  - `latest` for the default branch
+- Uses Docker BuildKit caching for faster builds
+
+Images are published to:
+- `ghcr.io/vilatsut/dnd-rulebook-llm/app`
+- `ghcr.io/vilatsut/dnd-rulebook-llm/gradio`
+
 ![UI preview](resources/ui.png)
