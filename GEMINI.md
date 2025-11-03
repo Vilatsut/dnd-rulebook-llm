@@ -4,33 +4,75 @@ This project is a Dungeons & Dragons knowledge worker that uses a Retrieval-Augm
 
 ## Project Overview
 
-The project is a complete RAG application with a user-friendly interface for querying a D&D rulebook, designed for both local development and deployment. It consists of the following main components:
+The project is a complete RAG application with a user-friendly interface for querying a D&D rulebook, designed for both local development and deployment. It consists of a FastAPI backend, a Gradio frontend, and data preparation scripts.
 
-### 1. Data Preparation
+## Development Setup
 
-The knowledge base is built from the `dragons_of_stormwreck_isle.pdf` file. The process involves:
+### Prerequisites
 
-*   **Extraction:** Text, images, and tables are extracted from the PDF into a markdown file (`data/dnd_rules_markdown.md`) using LlamaParse (`scripts/extract_data.py`).
-*   **Embedding:** The markdown content is chunked, converted into vector embeddings using a HuggingFace sentence transformer, and stored in a ChromaDB vector store (`scripts/process_data.py`).
+*   Python 3.12+
+*   `uv` (Python package installer)
+*   Docker
 
-### 2. Backend (FastAPI)
+### Installation
 
-The backend is a FastAPI application (`app/main.py`) that exposes an `/invoke` endpoint. When a user query is received, the backend:
+1.  Clone the repository.
+2.  Install dependencies for both backend and frontend:
+    ```bash
+    cd backend
+    uv sync
+    cd ../frontend
+    uv sync
+    cd ..
+    ```
 
-1.  Generates an embedding for the query.
-2.  Performs a similarity search in the ChromaDB vector store to find relevant context.
-3.  Uses a Large Language Model (LLM) to generate a response based on the query and the retrieved context.
+### Environment Variables
 
-The inference engine is powered by a Docker Model Runner, configured in `docker-compose.yml`.
+Create a `.env` file in the project root with the following variables:
 
-### 3. Frontend (Gradio)
+```
+LLAMA_CLOUD_API_KEY="your_llamaparse_api_key_here"
+LANGCHAIN_API_KEY="your_langchain_api_key_here"
+LANGCHAIN_TRACING_V2=true
+LANGCHAIN_PROJECT="your_project_name"
+```
 
-The user interface is a Gradio chat interface (`gradio_app.py`) that provides a simple chat window for users to ask questions. The Gradio app communicates with the FastAPI backend to get the answers and streams the response to the user.
+## Data Preparation
 
-### 4. Containerization and Deployment
+1.  **Extract data from PDF:**
+    ```bash
+    cd backend
+    python -m scripts.extract_data
+    ```
 
-The project is containerized using Docker for both local development and deployment:
+2.  **Process and embed data:**
+    ```bash
+    python -m scripts.process_data
+    ```
 
-*   `Dockerfile` and `gradio.Dockerfile` are used to build the images for the FastAPI backend and Gradio frontend.
-*   `docker-compose.yml` is used to orchestrate the local deployment of the application, including the `ai_runner` service for the LLM.
-*   Kubernetes manifests, generated using `docker compose bridge convert`, are available in the `k8s/` directory for deployment to a Kubernetes cluster.
+## Running the Application
+
+### Local Development
+
+1.  **Run the backend:**
+    ```bash
+    cd backend
+    uvicorn backend:app --host 0.0.0.0 --port 8000
+    ```
+
+2.  **Run the frontend:**
+    ```bash
+    cd frontend
+    python frontend.py
+    ```
+
+### Docker
+
+To run the application with Docker Compose:
+```bash
+docker compose up
+```
+
+## CI/CD
+
+The project uses a GitHub Actions workflow (`.github/workflows/ci.yml`) to lint the code with Ruff and to build and push Docker images for the backend and frontend.
