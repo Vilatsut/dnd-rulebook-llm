@@ -151,7 +151,7 @@ The project uses GitHub Actions for CI/CD. The workflow in `.github/workflows/ci
 
 The model used (ai/smollm2, 360 million parameters) does not have the context windows required for these kinds of task, but was used for the reason of running the model locally. As the code uses the OpenAi api endpoint, using another model is simply a drop-in replacement.
 
-## A test run of dnd knowledge worker llm with a 360 million ai/smollm2 model. 
+## A test run of the knowledge worker with a 360 million ai/smollm2 model. You can see the context retrieved on the right.
 https://github.com/user-attachments/assets/f34b1038-5027-4d13-a8c4-2a850b158a6f
 
 
