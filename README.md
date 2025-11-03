@@ -64,7 +64,8 @@ dnd-rulebook-llm/
 
 *   Python 3.12+
 *   `uv` (Python package installer)
-*   Docker
+*   Docker with Docker Model Runner 
+    (see https://docs.docker.com/ai/model-runner/)
 
 ### Setup
 
@@ -127,6 +128,11 @@ dnd-rulebook-llm/
     python frontend.py
     ```
     The Gradio UI will be available at `http://localhost:7860`.
+
+4. **Run the model**
+    ```bash
+    docker model run smollm2 -d  # Or the model of your choice
+    ```
 
 ### Docker
 
