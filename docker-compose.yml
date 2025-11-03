@@ -1,22 +1,29 @@
 
 services:
-  app:
-    build: .
+  backend:
+    image: vilatsut/dnd-rulebook-llm-backend:latest
+    build:
+      context: ./backend
+    container_name: backend
     ports:
       - "8000:8000"
+    restart: unless-stopped
     models:
       ai_runner:
         endpoint_var: AI_RUNNER_URL
         model_var: AI_RUNNER_MODEL
-  gradio:
+  frontend:
+    image: vilatsut/dnd-rulebook-llm-frontend:latest
     build:
-      context: .
-      dockerfile: gradio.Dockerfile
+      context: ./frontend
+    container_name: frontend
     ports:
       - "7860:7860"
     depends_on:
-      - app
+      - backend
+    restart: unless-stopped
 
 models:
   ai_runner:
     model: ai/smollm2
+

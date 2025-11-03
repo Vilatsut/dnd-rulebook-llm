@@ -1,0 +1,17 @@
+#! model-runner-volume-claim.yaml
+# Generated code, do not edit
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+    name: model-storage
+    namespace: dnd-rulebook-llm
+    labels:
+        com.docker.compose.project: dnd-rulebook-llm
+        com.docker.model.runner: "true"
+spec:
+    accessModes:
+        - ReadWriteOnce
+    volumeMode: Filesystem
+    resources:
+        requests:
+            storage: 100Gi

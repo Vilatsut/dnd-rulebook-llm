@@ -1,0 +1,18 @@
+#! frontend-expose.yaml
+# Generated code, do not edit
+apiVersion: v1
+kind: Service
+metadata:
+    name: frontend
+    namespace: dnd-rulebook-llm
+    labels:
+        com.docker.compose.project: dnd-rulebook-llm
+        com.docker.compose.service: frontend
+spec:
+    selector:
+        com.docker.compose.project: dnd-rulebook-llm
+        com.docker.compose.service: frontend
+    ports:
+        - name: frontend-7860
+          port: 7860
+          targetPort: frontend-7860

@@ -1,8 +1,0 @@
-#! 0-dnd-rulebook-llm-namespace.yaml
-# Generated code, do not edit
-apiVersion: v1
-kind: Namespace
-metadata:
-    name: dnd-rulebook-llm
-    labels:
-        com.docker.compose.project: dnd-rulebook-llm
