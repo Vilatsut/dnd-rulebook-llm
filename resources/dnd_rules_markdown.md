@@ -2293,10 +2293,29 @@ This encounter poses a simple challenge for characters of 2nd level or higher, o
 
 > Billowing clouds of steam emerge from the rocks ahead, and the air grows thicker with moisture. As you round a bend, you see a cove where a hot spring bubbles up from the rocks and spills into a pool before draining into the ocean. The turquoise water is luminescent, and the gray basalt edges of the spring are lined with vibrantly colored mushrooms, which occasionally burst in a shower of rainbow spores.
 
-Not immediately visible to the characters are the guardians of the spring: three **fume drakes**. These mischievous creatures are initially indifferent to the characters and ignore their arrival, but if anyone attempts to gather mushrooms or enter the water of the hot spring, the fume drakes become hostile, emerging from the water to attack the group. A character who examines the water and succeeds on a DC 10 Wisdom (
+Not immediately visible to the characters are the guardians of the spring: three **fume drakes**. These mischievous creatures are initially indifferent to the characters and ignore their arrival, but if anyone attempts to gather mushrooms or enter the water of the hot spring, the fume drakes become hostile, emerging from the water to attack the group. A character who examines the water and succeeds on a DC 10 Wisdom (Perception) check spots the shimmering outlines of the fume drakes in the water.
 
+Spring Waters. The spring is the site of a brass dragon's death, and life-giving magic persists at the site. A character who spends 10 minutes bathing in the waters of the spring can roll one of their Hit Dice (noted on each character sheet) and regain hit points equal to the roll plus their Constitution modifier. A character can benefit from bathing in the hot spring at most once per day.
 
-the kobolds' cheek result is surprised and loses their turn during the first round of combat (see "Surprise" in the rulebook). Read this text when the kobolds attack:
+Treasure. A character who examines the mushrooms lining the spring and succeeds on a DC 15 Intelligence (Nature) check identifies these mushrooms as wind spores—a rare fungus with a unique magical property. When a creature squeezes a wind spore mushroom's cap, it releases a small cloud of spores. For 1 hour, the creature doesn't need to breathe, as the spores provide it with oxygen. A wind spore is worth 30 gp, and at any given time 2d4 wind spores are ready to be harvested.
+
+### THERE, THERE, OWLBEAR
+
+This encounter poses a medium challenge for 3rd-level characters and a difficult challenge for 2nd-level characters. Use it if your group enjoys combat or the players need a chance to practice using their characters' new abilities after gaining a level. It’s particularly appropriate if the characters are traveling across the island rather than following the coast.
+
+A discordant sound—half a low growl, half a piercing screech—rips through the air. Abruptly, a hulking creature comes into view. A mix of purple feathers and deep brown fur covers its bear-like body, and its large eyes stare hungrily at you from its owlish head.
+
+This owlbear is hostile toward the characters. It views them as intruders in its territory, though its goal is to drive them away rather than kill them. Originally part of a performing troupe, the owlbear was stranded here after the ship carrying the troupe crashed on the northern rocks.
+
+Any character within 5 feet of the owlbear notices a small wooden whistle hanging around its neck. This whistle was (and still can be) used to train and command the owlbear. A character within 5 feet of the owlbear can use their action to attempt to grab the whistle. If the character succeeds on a DC 12 Strength check, the whistle comes free.
+
+With the whistle in hand, a character can take an action to blow into it and make a DC 10 Wisdom (Animal Handling) check. On a success, the owlbear calms and immediately becomes friendly toward the whistle holder and indifferent toward the other characters. However, it won’t leave the area it now considers its territory, and any attempt to force it to leave makes it hostile again.
+
+Kobold Renegades
+
+This encounter is a difficult challenge for 1st-level characters and can be scaled up for 2nd- or 3rd-level characters as noted below. It’s appropriate whenever characters are traveling around the island by land.
+
+A group of kobolds tries to ambush the characters. They’re hiding in the rocks and light foliage, hoping to get the jump on the adventurers. Make a Dexterity (Stealth) check for the kobolds, rolling once for all of them and using the Dexterity modifier (+2) of the wingless kobolds. Compare the result to the characters’ passive Wisdom (Perception) scores. Any character whose score is lower than the kobolds' check result is surprised and loses their turn during the first round of combat (see "Surprise" in the rulebook). Read this text when the kobolds attack:
 
 > A yipping sound erupts around you as angry kobolds emerge from their hiding places and attack!
 
@@ -2502,7 +2521,7 @@ Once the characters return to Dragon's Rest, Tarak can use the ruby morel to mak
 
 After they complete this chapter of the adventure, the characters gain a level. If they visited Seagrow Caves before the wreck of *Compass Rose*, they advance from 1st level to 2nd level. The residents of Dragon's Rest urge them to visit the wreck of *Compass Rose* next (see "Shipwreck" on page 12).
 
-If they've already explored the wreck of *Compass Rose* in chapter 3, they advance from 2nd level to 3rd level and are ready to visit Clifftop Observatory in chapter 4. (See "Lost Wyrmling" on page 13.
+If they've already explored the wreck of *Compass Rose* in chapter 3, they advance from 2nd level to 3rd level and are ready to visit Clifftop Observatory in chapter 4. (See "Lost Wyrmling" on page 13.)
 
 The character sheets explain what happens when characters gain a level.
 
